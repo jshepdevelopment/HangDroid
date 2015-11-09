@@ -27,7 +27,6 @@
         android:orientation="horizontal">
 
         <!-- create text pragmatically -->
-
     </LinearLayout>
 
     <LinearLayout
@@ -53,9 +52,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp" />
+        <!-- video -->
 
         <Button
-            android:id="@+id/checkButton"
+            android:id="@+id/checkItButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="newLetter"

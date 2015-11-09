@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,4 +19,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);
     }
+
+    public void startMultiPlayerGame(View view) {
+        //explicit intent sends a message to start an activity
+        Intent intent = new Intent(this, MultiPlayerActivity.class);
+        startActivity(intent);
+    }
+
+    @Override public void onBackPressed() {
+        Toast.makeText(this, "You can't go back. ", Toast.LENGTH_SHORT);
+    }
+
 }

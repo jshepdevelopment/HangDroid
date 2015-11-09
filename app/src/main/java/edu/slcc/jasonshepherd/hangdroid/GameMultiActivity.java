@@ -28,7 +28,7 @@ public class GameMultiActivity extends AppCompatActivity {
 
         //get the word from the intent
         String wordToGuess = "";
-        wordToGuess = getIntent().getStringExtra("GuessID"); //defaults if no date comes with intent
+        wordToGuess = getIntent().getStringExtra("GUESS_WORD"); //defaults if no date comes with intent
 
         Log.d("MYLOG", "Word Sent: " + wordToGuess);
         createTextViews(wordToGuess);
@@ -43,13 +43,13 @@ public class GameMultiActivity extends AppCompatActivity {
         LinearLayout layout = (LinearLayout) findViewById(R.id.layoutLetters);
 
         //1 - create the textview and all of its properties in java code
+        //2 - create one textview in xml and copy it to the others. (single_letter.xml)
         for (int i=0; i<word.length(); i++) {
             TextView textView = (TextView) getLayoutInflater().inflate(R.layout.single_letter, null);
             //add view to layout container;
             layout.addView(textView);
             //test run and look for text views
         }
-        //2 - create one textview in xml and copy it to the others. (single_letter.xml)
 
     }
 
