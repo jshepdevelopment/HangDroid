@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".GameOverActivity">
+    tools:context="edu.slcc.jasonshepherd.hangdroid.GameMultiActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -27,22 +26,8 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textViewPoints"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:text=""
-            android:textSize="40dp"
-            android:textStyle="bold" />
+        <!-- create text pragmatically -->
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:text="Points"
-            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,22 +39,40 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insert Letter"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
         <Button
             android:id="@+id/checkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="newLetter"
-            android:text="Save Score" />
-
-        <EditText
-            android:id="@+id/editTextLetter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:hint="INSERT YOUR NAME" />
-
-
+            android:text="Check Letter" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewWrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layoutLetters"
+        android:layout_alignEnd="@id/imageView"
+        android:layout_marginBottom="168dp"
+        android:layout_marginEnd="250dp"
+        android:text="Guessed Letters"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/red"
+        android:textStyle="bold" />
 
 </RelativeLayout>

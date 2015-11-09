@@ -14,7 +14,7 @@ import android.widget.Toast;
 /**
  * Created by Jason Shepherd on 11/9/2015.
  */
-public class GameActivity extends AppCompatActivity {
+public class GameMultiActivity extends AppCompatActivity {
 
     String theWord = "";
     int badLetterCount = 0;
@@ -24,8 +24,33 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
-        setWord();
+        setContentView(R.layout.activity_multi_game);
+
+        //get the word from the intent
+        String wordToGuess = "";
+        wordToGuess = getIntent().getStringExtra("GuessID"); //defaults if no date comes with intent
+
+        Log.d("MYLOG", "Word Sent: " + wordToGuess);
+        createTextViews(wordToGuess);
+
+        theWord = wordToGuess;
+
+        //setWord();
+    }
+
+    private void createTextViews(String word) {
+        //get the layout
+        LinearLayout layout = (LinearLayout) findViewById(R.id.layoutLetters);
+
+        //1 - create the textview and all of its properties in java code
+        for (int i=0; i<word.length(); i++) {
+            TextView textView = (TextView) getLayoutInflater().inflate(R.layout.single_letter, null);
+            //add view to layout container;
+            layout.addView(textView);
+            //test run and look for text views
+        }
+        //2 - create one textview in xml and copy it to the others. (single_letter.xml)
+
     }
 
     //called when user clicks on button set in activity_game.xml
