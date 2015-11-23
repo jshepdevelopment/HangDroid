@@ -26,7 +26,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override public void onBackPressed() {
+    public void openScores(View view) {
+        //update scores xml
+        Intent intent = new Intent(this, ScoreActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
         Toast.makeText(this, "You can't go back. ", Toast.LENGTH_SHORT);
     }
 

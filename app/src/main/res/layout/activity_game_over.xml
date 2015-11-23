@@ -58,11 +58,11 @@
             android:id="@+id/checkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="newLetter"
+            android:onClick="saveScore"
             android:text="Save Score" />
 
         <EditText
-            android:id="@+id/editTextLetter"
+            android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
