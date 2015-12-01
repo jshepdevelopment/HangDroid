@@ -32,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void startTextPlayerGame(View view) {
+        //explicit intent sends a message to start an activity
+        Intent intent = new Intent(this, TextActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         Toast.makeText(this, "You can't go back. ", Toast.LENGTH_SHORT);

@@ -1,7 +1,6 @@
 package edu.slcc.jasonshepherd.hangdroid;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;

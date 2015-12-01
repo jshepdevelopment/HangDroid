@@ -44,6 +44,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/button4"
+            android:layout_marginBottom="10dp"
+            android:onClick="startTextPlayerGame"
+            android:text="Text Player" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/button2"
             android:layout_marginBottom="10dp"
             android:onClick="openScores"
