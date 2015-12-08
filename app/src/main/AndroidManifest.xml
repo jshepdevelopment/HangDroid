@@ -2,9 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.slcc.jasonshepherd.hangdroid">
 
+    <!-- permissions to read sms -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <!-- permission to use contacts -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -34,7 +38,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".TextActivity"></activity>
+        <activity android:name=".TextActivity" />
+        <activity android:name=".ContactsActivity"></activity>
     </application>
 
 </manifest>

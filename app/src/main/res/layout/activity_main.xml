@@ -56,5 +56,13 @@
             android:layout_marginBottom="10dp"
             android:onClick="openScores"
             android:text="Scores" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button3"
+            android:layout_marginBottom="10dp"
+            android:onClick="openContacts"
+            android:text="Contacts" />
     </LinearLayout>
 </RelativeLayout>

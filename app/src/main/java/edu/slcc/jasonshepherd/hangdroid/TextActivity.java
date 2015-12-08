@@ -16,6 +16,8 @@ public class TextActivity extends AppCompatActivity {
     private SharedPreferences preferences;
     private TextView textView;
     private String textWord;
+    private String friendPhone;
+    private String texterPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,28 +25,56 @@ public class TextActivity extends AppCompatActivity {
         setContentView(R.layout.activity_text);
         //get text message from shared preferencves
         preferences = getSharedPreferences("TEXT_MSGS", MODE_PRIVATE);
-        //read preferences
+        //read preferences to get friends phone if called from contacts activity
+        friendPhone = getIntent().getStringExtra("Phone"); //defaults if data does not come with intent
+
+        Log.d("MYLOG", "Friend: " + friendPhone);
+
         getTextFromPref();
+        //get phone from intent if it was called from contacts
     }
 
     public void setTextMessage (View view) {
         getTextFromPref();
     }
 
-    public void getTextFromPref(){
+    public void getTextFromPref() {
         // get text message from shared preferences
         // read preferences
         textWord = preferences.getString("TextedWord", "NO WORD"); // NOW WORD if preferences not found
-        // get the textview for texted word
-        if(textWord == "NO WORD") {
+        texterPhone = preferences.getString("TexterPhone", "NO PHONE"); //NO PHONE if preferences are not found
+        textView = (TextView) findViewById(R.id.editTextWord);
+
+        //set up boolean values
+        boolean phone = true;
+        boolean word = true;
+        boolean friend = true;
+        if (textWord == "NO WORD") word = false;
+        if (texterPhone == "NO PHONE") phone = false;
+        if (friendPhone == null) friend = false;
+
+        // word but no friend selected
+        if (!friend && word) {
+            textView.setText(textWord);
             textWord = "";
+            texterPhone = "";
+            return;
+        }
+
+        //word and friend phone then check phone
+        if (word && phone) {
+            if (friendPhone.equals(texterPhone)) {
+                textView.setText(textWord);
+                textWord = "";
+                texterPhone = "";
+            } else {
+                Toast.makeText(this, "No Text from Selected Friend", Toast.LENGTH_LONG).show();
+            }
+            return;
+        }
+        if (!word) {
             Toast.makeText(this, "No Text Received", Toast.LENGTH_LONG).show();
         }
-        Log.d("MYLOG", "Texted Word: " + textWord);
-
-        // put texted word in textview
-        textView = (TextView) findViewById(R.id.editTextWord);
-        textView.setText(textWord);
     }
 
     //play button

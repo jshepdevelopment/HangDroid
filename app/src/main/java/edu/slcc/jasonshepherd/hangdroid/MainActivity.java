@@ -32,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openContacts(View view) {
+        //update scores xml
+        Intent intent = new Intent(this, ContactsActivity.class);
+        startActivity(intent);
+    }
+
     public void startTextPlayerGame(View view) {
         //explicit intent sends a message to start an activity
         Intent intent = new Intent(this, TextActivity.class);
